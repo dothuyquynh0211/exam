@@ -9,7 +9,6 @@ class CustomerController extends Controller
 {
     //
     function getAllInfo(){
-
         $rs = CustomerModel::getAll();
         return view('index',['result'=>$rs]);
     }
@@ -29,9 +28,6 @@ class CustomerController extends Controller
         $email = $rq ->input('email');
         $rs = CustomerModel::insertInfo($Name,$gender,$path,$phone,$email);
         if ($rs == true ) {
-              return $this->getAllInfo();
-            // $result = CustomerModel::getAll();
-            // return view('index',['result'=>$result]);
             return redirect('/customer');
         }
         else {
